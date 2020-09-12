@@ -10,24 +10,37 @@
       "route": "manage",
       "name": "manage",
       "type": "sub",
-      "icon": "dashboard",
+      "icon": "assignment",
       "children": [
         {
           "route": "clients",
           "name": "clients",
-          "type": "link",
-          "children": [
-            {
-              "route": "client-edit",
-              "name": "edit",
-              "type": "link"
-            },
-            {
-              "route": "client-create",
-              "name": "create",
-              "type": "link"
-            }
-          ]
+          "type": "link"
+        },
+        {
+          "route": "directors",
+          "name": "directors",
+          "type": "link"
+        },
+        {
+          "route": "producers",
+          "name": "producers",
+          "type": "link"
+        },
+        {
+          "route": "protagonists",
+          "name": "protagonists",
+          "type": "link"
+        },
+        {
+          "route": "technologies",
+          "name": "technologies",
+          "type": "link"
+        },
+        {
+          "route": "games",
+          "name": "games",
+          "type": "link"
         }
       ]
     },

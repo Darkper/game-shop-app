@@ -3,6 +3,11 @@
     "dashboard": "Dashboard",
     "manage": "Manage",
     "manage.clients": "Clients",
+    "manage.directors": "Directors",
+    "manage.producers": "Producers",
+    "manage.protagonists": "Protagonists",
+    "manage.technologies": "Technologies",
+    "manage.games": "Games",
     "design": "Design",
     "design.colors": "Color System",
     "design.icons": "Material Icons",
@@ -81,6 +86,16 @@
   },
   "title": {
     "user.edit": "Edit User",
-    "user.create": "Create User"
+    "user.create": "Create User",
+    "director.edit": "Edit Director",
+    "director.create": "Create Director",
+    "producer.edit": "Edit Producer",
+    "producer.create": "Create Producer",
+    "protagonist.edit": "Edit Producer",
+    "protagonist.create": "Create Producer",
+    "technology.edit": "Edit Producer",
+    "technology.create": "Create Producer",
+    "game.edit": "Edit Game",
+    "game.create": "Create Game"
   }
 }
