@@ -1,1 +1,32 @@
 <breadcrumb></breadcrumb>
+<h2>Top</h2>
+<div class="matero-row" fxLayout="row wrap">
+  <div class="matero-col" fxFlex="50">
+    <mat-card>
+      <h4>Most Rented Game</h4>
+      <mat-card-content>
+        <h2>{{game.name}}</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="matero-col" fxFlex="50">
+    <mat-card>
+      <h4>More Frequent Client</h4>
+      <mat-card-content>
+        <h2>{{client.name}}</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<h2>Purchase of day</h2>
+<mat-card>
+  <mat-card-content>
+    <mtx-grid class="mat-elevation-z1"
+              [data]="rents"
+              [columns]="columns"
+              [loading]="isLoading">
+    </mtx-grid>
+  </mat-card-content>
+</mat-card>
+

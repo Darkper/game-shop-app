@@ -14,6 +14,14 @@ export class ClientService {
     return await this.httpClient.get<Client[]>('api/clients').toPromise();
   }
 
+  async findById(id: string): Promise<Client> {
+    return await this.httpClient.get<Client>(`api/clients/${id}`).toPromise();
+  }
+
+  async getMoreFrequent(): Promise<Client> {
+    return await this.httpClient.get<Client>('api/clients/more-frequent').toPromise();
+  }
+
   async save(client: Client): Promise<void> {
     await this.httpClient.post<Client>('api/clients', client).toPromise();
   }

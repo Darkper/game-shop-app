@@ -1,0 +1,76 @@
+<mat-card>
+  <mat-card-title>Rent Details</mat-card-title>
+
+  <mat-dialog-content>
+    <div fxLayout="row wrap" class="matero-row">
+      <div fxFlex="100" class="matero-col">
+        <form [formGroup]="formGroup" class="form-field-full">
+          <div fxLayout="row wrap" fxLayoutGap="8px grid">
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Id</mat-label>
+                <label>
+                  <input matInput placeholder="Id" [readonly]="true" formControlName="id" required>
+                </label>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Client Id</mat-label>
+                <label>
+                  <input matInput placeholder="Client Id" [readonly]="true" formControlName="clientId" required>
+                </label>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Name</mat-label>
+                <label>
+                  <input matInput placeholder="name" [readonly]="true" formControlName="name" required>
+                </label>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <label>
+                  <input matInput placeholder="Last Name" [readonly]="true" formControlName="lastName" required>
+                </label>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Date</mat-label>
+                <label>
+                  <input matInput placeholder="Last Name" [readonly]="true" formControlName="date" required>
+                </label>
+              </mat-form-field>
+            </div>
+
+            <br>
+            <br>
+            <div fxFlex="100" fxFlex.lt-sm="100">
+              <mat-card-subtitle>Games</mat-card-subtitle>
+            </div>
+            <mtx-grid class="mat-elevation-z1"
+                      [data]="rentGames"
+                      [columns]="columns"
+                      [loading]="isLoading">
+            </mtx-grid>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button style="margin-right: 10px" (click)="onCloseClick()">Close</button>
+  </mat-dialog-actions>
+
+</mat-card>
+

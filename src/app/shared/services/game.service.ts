@@ -13,6 +13,10 @@ export class GameService {
     return await this.httpClient.get<Game[]>('api/games').toPromise();
   }
 
+  async getMoreRented(): Promise<Game> {
+    return await this.httpClient.get<Game>('api/games/more-rented').toPromise();
+  }
+
   async save(game: Game): Promise<void> {
     await this.httpClient.post<Game>('api/games', game).toPromise();
   }

@@ -21,13 +21,14 @@ import {ProducerService} from '@shared/services/producer.service';
 import {ProtagonistService} from '@shared/services/protagonist.service';
 import {TechnologyService} from '@shared/services/technology.service';
 import {GameService} from '@shared/services/game.service';
+import {RentService} from '@shared/services/rent.service';
 
 // Required for AOT compilation
 export function TranslateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-const SERVICES = [ClientService, DirectorService, ProducerService, ProtagonistService, TechnologyService, GameService];
+const SERVICES = [ClientService, DirectorService, ProducerService, ProtagonistService, TechnologyService, GameService, RentService];
 
 @NgModule({
   declarations: [AppComponent],

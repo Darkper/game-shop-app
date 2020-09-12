@@ -3,8 +3,8 @@ import {MtxGridColumn} from '@ng-matero/extensions';
 import {MatDialog} from '@angular/material/dialog';
 import {Protagonist} from '@shared/models/protagonist';
 import {ProtagonistService} from '@shared/services/protagonist.service';
-import {ManageProducerEditComponent} from '../producer-edit/producer-edit.component';
 import {ManageProtagonistCreateComponent} from '../protagonist-create/protagonist-create.component';
+import {ManageProtagonistEditComponent} from '../protagonist-edit/protagonist-edit.component';
 
 @Component({
   selector: 'app-manage-protagonists',
@@ -55,7 +55,7 @@ export class ManageProtagonistsComponent implements OnInit {
 
   async editProtagonist(protagonist: Protagonist) {
     this.isLoading = true;
-    this.dialog.open(ManageProducerEditComponent, {
+    this.dialog.open(ManageProtagonistEditComponent, {
       width: 'auto',
       data: protagonist,
       disableClose: true,
