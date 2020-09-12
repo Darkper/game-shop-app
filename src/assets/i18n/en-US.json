@@ -1,6 +1,8 @@
 {
   "menu": {
     "dashboard": "Dashboard",
+    "manage": "Manage",
+    "manage.clients": "Clients",
     "design": "Design",
     "design.colors": "Color System",
     "design.icons": "Material Icons",
@@ -77,28 +79,8 @@
     "inconsistent": "Inconsistent with {{value}}",
     "invalid_email": "Invalid email"
   },
-  "user": {
-    "profile": "profile",
-    "settings": "settings",
-    "logout": "logout"
-  },
-  "login": {
-    "title": "Welcome Back",
-    "username": "Username",
-    "password": "Password",
-    "remember_me": "Remember Me",
-    "login": "Login",
-    "have_no_account": "Don't have an account",
-    "create_one": "Click here to create one",
-    "please_enter": "Please enter"
-  },
-  "register": {
-    "welcome": "Welcome",
-    "title": "It only takes a few seconds to create your account",
-    "confirm_password": "Confirm Password",
-    "agree": "I have read and agree to the terms of service",
-    "have_an_account": "Already have an account",
-    "signin": "Sign in",
-    "register": "Create account"
+  "title": {
+    "user.edit": "Edit User",
+    "user.create": "Create User"
   }
 }

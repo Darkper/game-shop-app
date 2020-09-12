@@ -1,29 +1,31 @@
-import { NgModule } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { CoreModule } from './core/core.module';
-import { ThemeModule } from './theme/theme.module';
-import { RoutesModule } from './routes/routes.module';
-import { SharedModule } from './shared/shared.module';
-import { AppComponent } from './app.component';
+import {CoreModule} from '@core/core.module';
+import {ThemeModule} from '@theme/theme.module';
+import {RoutesModule} from './routes/routes.module';
+import {SharedModule} from '@shared';
+import {AppComponent} from './app.component';
 
-import { ToastrModule } from 'ngx-toastr';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {ToastrModule} from 'ngx-toastr';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {appInitializerProviders} from '@core/initializers';
+import {FormlyConfigModule} from './formly-config.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ClientService} from '@shared/services/client.service';
+import {ManageModule} from './routes/manage/manage.module';
+
 // Required for AOT compilation
 export function TranslateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-import { httpInterceptorProviders } from '@core/interceptors';
-import { appInitializerProviders } from '@core/initializers';
-import { FormlyConfigModule } from './formly-config.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    ManageModule,
     BrowserModule,
     HttpClientModule,
     CoreModule,
@@ -41,7 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     }),
     BrowserAnimationsModule,
   ],
-  providers: [httpInterceptorProviders, appInitializerProviders],
+  providers: [appInitializerProviders, ClientService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

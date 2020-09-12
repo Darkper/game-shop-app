@@ -1,16 +1,43 @@
 {
-  "menu": [{
+  "menu": [
+    {
       "route": "dashboard",
       "name": "dashboard",
       "type": "link",
       "icon": "dashboard"
     },
     {
+      "route": "manage",
+      "name": "manage",
+      "type": "sub",
+      "icon": "dashboard",
+      "children": [
+        {
+          "route": "clients",
+          "name": "clients",
+          "type": "link",
+          "children": [
+            {
+              "route": "client-edit",
+              "name": "edit",
+              "type": "link"
+            },
+            {
+              "route": "client-create",
+              "name": "create",
+              "type": "link"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "route": "sessions",
       "name": "sessions",
       "type": "sub",
       "icon": "question_answer",
-      "children": [{
+      "children": [
+        {
           "route": "403",
           "name": "403",
           "type": "link"

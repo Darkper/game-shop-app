@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {environment} from '@env/environment';
 
 import {AdminLayoutComponent} from '@theme/admin-layout/admin-layout.component';
@@ -15,6 +15,11 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         data: {title: 'Dashboard', titleI18n: 'dashboard'},
+      },
+      {
+        path: 'manage',
+        loadChildren: () => import('./manage/manage.module').then(m => m.ManageModule),
+        data: {title: 'Manage', titleI18n: 'manage'}
       },
       {
         path: 'sessions',
