@@ -16,11 +16,18 @@ import {FormlyConfigModule} from './formly-config.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ClientService} from '@shared/services/client.service';
 import {ManageModule} from './routes/manage/manage.module';
+import {DirectorService} from '@shared/services/director.service';
+import {ProducerService} from '@shared/services/producer.service';
+import {ProtagonistService} from '@shared/services/protagonist.service';
+import {TechnologyService} from '@shared/services/technology.service';
+import {GameService} from '@shared/services/game.service';
 
 // Required for AOT compilation
 export function TranslateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+const SERVICES = [ClientService, DirectorService, ProducerService, ProtagonistService, TechnologyService, GameService];
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,7 +50,7 @@ export function TranslateHttpLoaderFactory(http: HttpClient) {
     }),
     BrowserAnimationsModule,
   ],
-  providers: [appInitializerProviders, ClientService],
+  providers: [appInitializerProviders, SERVICES],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
