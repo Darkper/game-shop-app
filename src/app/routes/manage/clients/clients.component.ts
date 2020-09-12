@@ -108,6 +108,5 @@ export class ManageClientsComponent implements OnInit {
       this.clients.unshift(result);
       this.isLoading = false;
     });
-
   }
 }

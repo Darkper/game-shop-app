@@ -1,13 +1,13 @@
 <breadcrumb></breadcrumb>
 <mat-card>
   <mat-card-title>
-    <button mat-fab (click)="addClient()">
+    <button mat-fab (click)="addDirector()">
       <mat-icon>person_add</mat-icon>
     </button>
   </mat-card-title>
   <mat-card-content>
     <mtx-grid class="mat-elevation-z1"
-              [data]="clients"
+              [data]="directors"
               [columns]="columns"
               [loading]="isLoading">
     </mtx-grid>

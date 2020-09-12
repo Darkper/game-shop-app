@@ -1,0 +1,126 @@
+<mat-card>
+  <mat-card-title>{{'title.game.create' | translate}}</mat-card-title>
+
+  <mat-dialog-content>
+    <div fxLayout="row wrap" class="matero-row">
+      <div fxFlex="100" class="matero-col">
+        <form [formGroup]="formGroup" class="form-field-full">
+          <div fxLayout="row wrap" fxLayoutGap="8px grid">
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Id</mat-label>
+                <label>
+                  <input matInput placeholder="Id" [readonly]="true" formControlName="id" required>
+                </label>
+                <mat-error *ngIf="formGroup.get('id').invalid">
+                  {{'validations.required' | translate}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Name</mat-label>
+                <label>
+                  <input matInput placeholder="Name" formControlName="name" required>
+                </label>
+                <mat-error *ngIf="formGroup.get('name').invalid">
+                  {{'validations.required' | translate}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Price</mat-label>
+                <label>
+                  <input matInput placeholder="Price" type="number" formControlName="price" required>
+                </label>
+                <mat-error *ngIf="formGroup.get('price').invalid">
+                  {{'validations.required' | translate}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Release Date</mat-label>
+                <label>
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date"
+                         formControlName="releaseDate">
+                </label>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Director</mat-label>
+                <mat-select formControlName="directorId" required>
+                  <mat-option>-- None --</mat-option>
+                  <mat-option *ngFor="let director of directors" value="{{director.id}}">{{director.name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formGroup.get('directorId').invalid">
+                  {{'validations.required' | translate}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Producer</mat-label>
+                <mat-select formControlName="producerId" required>
+                  <mat-option>-- None --</mat-option>
+                  <mat-option *ngFor="let producer of producers" value="{{producer.id}}">{{producer.name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formGroup.get('producerId').invalid">
+                  {{'validations.required' | translate}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" fxFlex.lt-sm="100">
+              <mat-form-field>
+                <mat-label>Technology</mat-label>
+                <mat-select formControlName="technologyId" required>
+                  <mat-option>-- None --</mat-option>
+                  <mat-option *ngFor="let technology of technologies"
+                              value="{{technology.id}}">{{technology.name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formGroup.get('technologyId').invalid">
+                  {{'validations.required' | translate}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <br>
+            <br>
+            <div fxFlex="100" fxFlex.lt-sm="100">
+              <mat-card-subtitle>{{'menu.manage.protagonists' | translate}}</mat-card-subtitle>
+            </div>
+            <mtx-grid class="mat-elevation-z1"
+                      [data]="protagonists"
+                      [rowSelected]="selectedProtagonists"
+                      [columns]="columns"
+                      [rowSelectable]="true"
+                      [cellSelectable]="false"
+                      [multiSelectable]="true"
+                      [pageSize]="5"
+                      [loading]="isLoading"
+                      (rowSelectionChange)="changeSelect($event)">
+            </mtx-grid>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button style="margin-right: 10px" (click)="onCloseClick()">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="!formGroup.valid" (click)="onSubmitClick()">Submit
+    </button>
+  </mat-dialog-actions>
+
+</mat-card>
+
